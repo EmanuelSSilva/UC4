@@ -1,0 +1,17 @@
+{
+  "name": "aula-de-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "A1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node A1.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
