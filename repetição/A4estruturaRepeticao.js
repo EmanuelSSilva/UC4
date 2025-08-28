@@ -36,4 +36,6 @@ while (true) {
     console.log(`Valor do pagamento: R$ ${pagamento.toFixed(2)}`)
     console.log(`Valor do troco: R$ ${troco.toFixed(2)}`)
     console.log("Compra finalizada. Próximo cliente!\n")
+
+    //
 }
