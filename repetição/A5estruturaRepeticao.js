@@ -1,26 +1,23 @@
 import PromptSync from "prompt-sync"
 const prompt = PromptSync()
 
-const aumentoInicial = 0.015
-const salario = 510
+let aumento = 1.5
+let salario = 510
 let salarioAtual = salario
-//let ano 
-//let proxAno = aumento * ano + ano
 
-// console.log("Ano 1: R$ " + ano.toFixed(2))
-// console.log("Ano 2: R$ " + proxAno.toFixed(2))
+for (let i = 2011; i <= 2025; i++) {
 
-for (let ano = 2; ano <= 14; ano++) {
-
-    let aumento = aumentoInicial * (2** - (ano -1)) 
-    salarioAtual += salarioAtual * aumento
-
+    if (i > 2010) {
     
-   //console.log(ano.toFixed(2))
+        salarioAtual += salarioAtual * (aumento / 100)
+        aumento += 1.5
+    }
+
+    let totalExibido = aumento - (i > 2010 ? 1.5 : 0)
+
+    console.log('-----------------------------');
+    console.log(`ano: ${i}`)
     console.log(salarioAtual.toFixed(2))
-    //console.log(proxAno.toFixed(2))
-    console.log(aumento.toFixed(2))
-    //console.log(`${i} \ R$ ${total.toFixed(2)}`)
- 
-    
+    console.log(`Percentual de aumento ${totalExibido.toFixed(2)}%`)
 }
+console.log('-----------------------------');

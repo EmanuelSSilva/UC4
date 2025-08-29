@@ -11,7 +11,7 @@ while (true) {
     while (true) {
         let preco = Number(prompt("Informe o preço da mercadoria (0 para finalizar): "))
         if (preco === 0) break
-        if (preco > 0) {
+        if (preco > 0 && preco <= 30) {
             total = total + preco
             quantidade++
         } else {
