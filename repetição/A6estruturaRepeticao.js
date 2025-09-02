@@ -31,6 +31,11 @@ while (true) {
         break
 
     }
-    
+    if (numero < total){
+        console.log("Voce conseguiu economizar.")
+        
+    }else{
+        console.log("Voce esta gastando mais do que ganha.")
+    }
 }
 }
