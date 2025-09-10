@@ -17,8 +17,3 @@ function calculaCaloria(e, t){
 }
 console.log(calculaCaloria(atividade, tempo))
 
-//     const caminhada = caminhada * 5
-//     const corrida = corrida * 10
-//     const bicicleta = bicicleta * 8
-//     return totalCalorias
-// }
