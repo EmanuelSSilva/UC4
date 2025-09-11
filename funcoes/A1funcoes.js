@@ -1,19 +1,11 @@
 import promptSync from 'prompt-sync';
+import { calculaCaloria } from './exporfuncoes.js';
 const prompt = promptSync();
+
 
 let atividade = prompt('Qual a atividade que vc fez? (caminhada, corrida ou bicicleta) ')
 let tempo = Number(prompt('Quantos minutos vc fez? '))
 
-function calculaCaloria(e, t){
-    let calorias = 0
-    if(e === 'caminhada'){
-        calorias = t * 5
-    }if(e === 'corrida'){
-        calorias = t * 10
-    }if(e === 'bicicleta'){
-        calorias = t * 8
-    }
-    return calorias
-}
+ 
 console.log(calculaCaloria(atividade, tempo))
 
