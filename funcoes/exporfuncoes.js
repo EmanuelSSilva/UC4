@@ -31,12 +31,34 @@ export const saque = (saldo, valor) => {
   
     }
 
-
 export {calculaCaloria}
 
-export const adicioproduto = function (loja, produto){
-    loja.push(produto)
-    return loja
+
+
+export const adicioproduto = function (produto,nome){
+    produto.push(nome)
+    return produto
+}
+export const adcionaQuant = function (quantidade,qtdade){
+    quantidade.push(qtdade)
+    return quantidade
+}
+export const adcionaValor = function (valor, value){
+    valor.push(value)
+    return valor
 }
 
 
+export function listaEstoque (prod, quant, valor){
+    for (let i = 0; i < prod.length; i++){
+        console.log(`Produto: ${prod[i]} - Quantidade: ${quant[i]} - Valor: ${valor[i]}`)
+    }
+}
+
+export function adicionarestoque (produto, nome, quantidade, qtdade, valor, value){
+    produto.push(nome)
+    quantidade.push(qtdade)
+    valor.push(value)
+} 
+
+export const consultaEstoque = (produto, nome ) => produto.indexOF(nome)

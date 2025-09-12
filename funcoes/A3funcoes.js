@@ -1,38 +1,34 @@
 import promptSync from 'prompt-sync';
+import { adcionaQuant, adicioproduto, adcionaValor, listaEstoque, consultaEstoque  } from './exporfuncoes.js';
 //import {adicionarProduto} from './exporfuncoes.js';
 const prompt = promptSync();
 
 let produto = []
-let total = 3
-let quantidade = 3
+let valor = []
+let quantidade = []
+let cadastro = 0
 
-// while (true) {
-//     let nome = Number(prompt('Informe o nome do produto: '))
-//     if(nome > quantidade){
-//         total = total + nome
-//         quantidade++
-// }
-// }
+let estoque = prompt('Deseja adicionar um produto ao estoque? ').toLocaleLowerCase()
+    if(estoque === 'sim'){
+for(let i = 0 ;cadastro < 2; i++){
+    let nomeProduto = prompt('Qual o nome do produto? ')
+    adicioproduto(produto, nomeProduto)
+    let valorProduto = Number(prompt('Qual o valor do produto? '))
+    adcionaValor(valor, valorProduto)
+    let quantProduto = Number(prompt('Qual a quantidade do produto? '))
+    adcionaQuant(quantidade, quantProduto)
 
-while (true) {
-    
-    console.log("======== Adicionando Produtos ========")
-    while (true) {
-        let nome =prompt("Informe o nome do produto (sair para finalizar): ")
-        if (nome.toLowerCase() === 'sair') break
-        let preco = Number(prompt("Informe o preço da mercadoria (0 para finalizar): "))
-        if (preco === 0) break
-        quantidade = prompt("Informe a quantidade do produto: ")
-        if (quantidade === 0) break
+    cadastro++
+}  
 
-        if (nome || preco > 0 || quantidade > 0) {
-            produto.push({ nome, preco, quantidade })
-            // total = total 
-            // quantidade++
-        } else {
-            console.log("Preço inválido. Tente novamente.")
-        }
-    }
-}
-console.log(`Total da compra: R$ ${total.toFixed(2)}`)
-console.log(`Quantidade de produtos: ${quantidade}`)
+listaEstoque(produto, quantidade, valor)
+
+console.log (consultaEstoque(produto, 'calca'))
+
+} 
+console.log(`Produtos: ${produto.length}`)
+console.log(`Valor: ${valor.length}`)
+console.log(`Quantidade: ${quantidade.length}`)
+// console.log(`Produtos: ${produto[i]}`)
+// console.log(`Valor: ${valor[i]}`)
+// console.log(`Quantidade: ${quantidade[i]}`)
