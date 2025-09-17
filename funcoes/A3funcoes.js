@@ -3,15 +3,15 @@ import { adcionaQuant, adicioproduto, adcionaValor, listaEstoque, consultaEstoqu
 //import {adicionarProduto} from './exporfuncoes.js';
 const prompt = promptSync();
 
-let produto = []
-let valor = []
-let quantidade = []
+let produto = ['bermuda', 'camisa', 'calca', 'tenis', 'bone']
+let valor = [12.00, 25.00, 50.00, 150.00, 30.00]
+let quantidade = [10, 20, 15, 5, 8]
 let cadastro = 0
 
 let estoque = prompt('Deseja adicionar um produto ao estoque? ').toLocaleLowerCase()
     if(estoque === 'sim'){
 for(let i = 0 ;cadastro < 2; i++){
-    let nomeProduto = prompt('Qual o nome do produto? ')
+    let nomeProduto = prompt('Qual o nome do produto? ').toLocaleLowerCase()
     adicioproduto(produto, nomeProduto)
     let valorProduto = Number(prompt('Qual o valor do produto? '))
     adcionaValor(valor, valorProduto)

@@ -15,4 +15,5 @@ if (velocidade > limite) {
     }
 } else {
     console.log("Velocidade dentro do limite permitido.");
-}
+};
+export let result1 = 0;
