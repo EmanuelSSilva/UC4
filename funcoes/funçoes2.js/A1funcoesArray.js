@@ -43,5 +43,5 @@ produtosbaratos = presco.forEach((presco, indice) => {
     }
 })
 
- 
+ //ok
  
