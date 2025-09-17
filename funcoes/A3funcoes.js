@@ -23,7 +23,7 @@ for(let i = 0 ;cadastro < 2; i++){
 
 listaEstoque(produto, quantidade, valor)
 
-console.log (consultaEstoque(produto, 'calca'))
+consultaEstoque(produto, 'calca')
 
 } 
 console.log(`Produtos: ${produto.length}`)

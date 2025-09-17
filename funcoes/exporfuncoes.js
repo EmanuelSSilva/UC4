@@ -61,4 +61,4 @@ export function adicionarestoque (produto, nome, quantidade, qtdade, valor, valu
     valor.push(value)
 } 
 
-export const consultaEstoque = (produto, nome ) => produto.indexOf(nome)
+export const consultaEstoque = (produto, nome ) => produto.indexOF(nome)
