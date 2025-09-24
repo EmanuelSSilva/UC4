@@ -66,7 +66,7 @@ export class ContaBancaria{
     }
 
      saque (valor) {
-        valor = Number(prompt("Informe o valor que deseja sacar"))
+        
         if (this.#saldo < valor )
             console.log("Saldo insifuciente para retirada")
         else if (valor <= 0 || isNaN(valor))
@@ -79,7 +79,7 @@ export class ContaBancaria{
     }
 
     deposito ( valor){
-        valor = Number(prompt("Informe o valor que deseja depositar: "))
+        
         if (valor <= 0 || isNaN(valor))
             console.log("valor é invalido")
         else{
@@ -87,38 +87,43 @@ export class ContaBancaria{
             console.log(`Deposito realizado com sucesso! Seu novo saldo é: ${this.#saldo}`)
         }
     }
-
-    rendimento (){
-        this.#saldo = this.#saldo * 0.10
-    }
-
-    saldoComRendimento (){
-        (`O seu saldo com redimento de 10% é: ${this.#saldo}`)
-    }
-
     extrato (){
-        console.log(`Seu saldo é ${this.#saldo}`)
+       console.log(`Seu saldo é ${this.#saldo}`)
     }
+    
+    rendimento (valor){
+        valor = this.#saldo * 0.10
+        console.log(`Seu rendimento é 10% sobre seu saldo atual e ao mês sera: ${valor}`)
+    }
+
+   
 
     ImpressaoInformacao (){
         console.log(`Ola ${this.nome} sua conta é ${this.numConta} e agência ${this.numAgencia} , a data de abetrura foi ${this.dataAbertura}\nO saldo da sua conta é: ${this.#saldo}`)
     }
 
     operacao (){
-        let resposta = prompt("Digite 1 para depositar ou 0 para sacar ou 2 para extrato ou para sair digite 3 ")
-    while (true){
-    if( resposta == "3"){break}    
+        while (true){
+        let resposta = prompt("1  para depositar \n2  para sacar \n3  para extrato \n0  para sair digite \n4  para visualizar o rendimento    ")
+    if( resposta == "0"){break}    
     if(resposta == "1"){
-        valor.deposito()
-    }else if(resposta == "0"){
-        valor.saque()
+        let valor = Number(prompt("Informe o valor que deseja depositar: "))
+        this.deposito(valor)
     }else if(resposta == "2"){
-        valor.extrato()
+        let valor = Number(prompt("Informe o valor que deseja sacar"))
+        this.saque(valor)
+    }else if(resposta == "3"){
+        this.extrato()
+
+    }else if(resposta == "4"){
+        this.rendimento()
+        this.extrato()
     }else{
         console.log("Opção invalida")
     }
-     resposta++
+     
     }
+    
     }
 
     
