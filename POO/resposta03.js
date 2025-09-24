@@ -56,6 +56,7 @@ produto1.mostrarQtdEstoque()
 produto1.removerEstoque(3)
 produto1.definirPreco(3200)
 produto1.verificarDisponibilidade()
+//console.log(produto1)
 
 
 
