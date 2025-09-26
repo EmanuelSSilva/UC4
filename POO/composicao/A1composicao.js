@@ -54,8 +54,7 @@ class Memoria {
         console.log(`Sua memoria esta com o espaço de ${this.#capacidade}`)
     }
 
-    }
-
+}
 
 class Processador {
     #marca
@@ -68,8 +67,34 @@ class Processador {
     this.#modelo = modelo
     this.#nucleo = nucleo
     this.#velocidade = velocidade
+    }   
 
-    executarPrograma ()
+    set marca (novaMarca){
+    this.#marca = novaMarca
+    }
+    get marca () {
+    return this.#marca
+    } 
+    set modelo (novoModelo){
+    this.#modelo = novoModelo
+    }
+    get modelo () {
+    return this.#modelo 
+    } 
+    set nucleo (novoNucleo){
+    this.#nucleo = novoNucleo
+    }
+    get nucleo () {
+    return this.#nucleo
+    } 
+    set velocidade (novaVelocidade){
+    this.#velocidade = novaVelocidade
+    }
+    get velocidade () {
+    return this.#velocidade
+    } 
+
+    executarPrograma (){
     let windows
         console.log(`Seu ${windows} esta sendo executado`)
     }
@@ -84,6 +109,24 @@ class Armazenamento {
     this.#capacidade = capacidade
     this.#espaco_Utilizado  = espaco_Utilizado
 
+    }
+    set tipo (novoTipo){
+    this.#tipo = novoTipo
+    }
+    get tipo () {
+    return this.#tipo
+    }
+    set capacidade (novaCapacidade){
+    this.#capacidade = novaCapacidade
+    }
+    get capacidade () {
+    return this.#capacidade
+    }
+    set espaco_Utilizado (novoEspaco){
+    this.#espaco_Utilizado = novoEspaco
+    }
+    get espaco_Utilizado () {
+    return this.#espaco_Utilizado
     }
 
     espacoLvre (){
@@ -100,6 +143,19 @@ class Tela {
     this.#tamanho = tamanho
     this.#resolucao = resolucao
 }
+set tamanho (novaTela){
+    this.#tamanho = novaTela
+}
+get tamanho(){
+    return this.#tamanho
+}
+set resolucao (novaResolucao){
+    this.#resolucao = novaResolucao
+}
+get resolucao(){
+    return this.#resolucao
+}
+
 
 ligar (){
     console.log("Monito ligado")
@@ -110,3 +166,50 @@ desligar (){
 
 
 }
+
+class Computador {
+    #marca
+    #modelo
+    constructor(marca, modelo, memoria, processador, armazenamento, tela){
+
+        this.#marca = marca
+        this.#modelo = modelo
+        this.memoria = memoria
+        this.processador = processador
+        this.armazenamento = armazenamento
+        this.tela = tela
+    }
+
+    set marca (novaMarcaPc){
+        this.#marca = novaMarcaPc
+    }
+    get marca (){
+        return this.#marca
+    }
+    set modelo (novoModeloPc){
+        this.#modelo = novoModeloPc
+    }
+    get modelo (){
+        return this.#modelo
+    }
+    
+    fichaTecnica (){
+        let dados = prompt(`Informe a marca do computado\n`)
+        let dad = prompt(`Informe o modelo `)
+        console.log(`A marca do computador é ${dados} de modelo ${dad}, contendo memoria de ${this.memoria}, ${this.processador}, ${this.armazenamento} e tela de ${this.tela}" polegadas`)
+    }
+
+    instalarSoftware(){
+        while (true){
+        let encerra = Number(prompt(`Se deseja que o computador não va com sistema digite 0, `))
+        let arreysoft = [] = prompt(`Informe quais Software voce deseja instalar`)
+        if (encerra == "0"){break}
+            for (let i = 0 ; encerra <= 3 ; i ++ ){
+                arreysoft.push[i]
+            }
+        }      
+    }
+}   
+
+let novops = new Computador
+novops.instalarSoftware()
