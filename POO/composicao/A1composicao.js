@@ -37,23 +37,21 @@ class Memoria {
         
 
     usarMemoria (){
-     let qtd = Number(`Porfavor informe quanto em uso esta a sua memoria`)
+     let qtd = Number(prompt(`Porfavor informe quanto em uso esta a sua memoria`))
         if (qtd > this.#capacidade){
-            console.log("Sua memoria esta com a capacidade no limite")
-            qtd = Number(promo(`Porfavor informe a quantidade que deseja remover de sua memoria`))
+          console.log("Sua memoria esta com a capacidade no limite")
+            qtd = Number(prompt(`Porfavor informe a quantidade que deseja liberar de sua memoria`))
             this.#capacidade -= qtd
             console.log(`O espaço liberado na memoria foi ${this.#capacidade}`)
         }else{
-            console.log("A memoria ainda esta com sua capacidade no estado normal")
+            console.log("A memoria esta com sua capacidade no estado normal")
         }
     }
 
-    liberarMemoria ( ){
-    let qtd = Number(`Porfavor informe a quantidade de sua memoria para liberar espaço`)
-        let result = this.#capacidade - qtd
-        console.log(`Sua memoria esta com o espaço de ${this.#capacidade}`)
-    }
-
+    // liberarMemoria ( ){
+    // let qtd = Number(prompt(`Porfavor informe a quantidade de sua memoria para liberar espaço`))
+    //     let result = this.#capacidade - qtd
+    //     console.log(`Sua memoria esta com o espaço de ${result}`)
 }
 
 class Processador {
@@ -106,7 +104,7 @@ class Armazenamento {
     #espaco_Utilizado
     constructor(tipo, capacidade, espaco_Utilizado){
     this.#tipo = tipo
-    this.#capacidade = capacidade
+    this.#capacidade = "1TB"
     this.#espaco_Utilizado  = espaco_Utilizado
 
     }
@@ -196,20 +194,36 @@ class Computador {
     fichaTecnica (){
         let dados = prompt(`Informe a marca do computado\n`)
         let dad = prompt(`Informe o modelo `)
-        console.log(`A marca do computador é ${dados} de modelo ${dad}, contendo memoria de ${this.memoria}, ${this.processador}, ${this.armazenamento} e tela de ${this.tela}" polegadas`)
+        console.log(`A marca do computador é ${dados} de modelo ${dad}, contendo memoria de ${this.memoria.capacidade}, seu processador é: ${this.processador.marca}, Armazenamento de ${this.armazenamento.capacidade} e tela de ${this.tela.tamanho}" polegadas`)
     }
 
     instalarSoftware(){
-        while (true){
-        let encerra = Number(prompt(`Se deseja que o computador não va com sistema digite 0, `))
-        let arreysoft = [] = prompt(`Informe quais Software voce deseja instalar`)
-        if (encerra == "0"){break}
-            for (let i = 0 ; encerra <= 3 ; i ++ ){
-                arreysoft.push[i]
+        let arreysoft = [] 
+        let encerra = prompt(`Se deseja que o computador não va com sistema digite 0. `)
+        if (encerra !== "0" ){
+            let adciona  = Number(prompt(`Informe quais Software voce deseja instalar: `))
+               for (let i = 0 ; i < adciona ; i ++ ){
+                arreysoft.push[prompt("Qual soft vc deseja no seu computador")]
             }
-        }      
+        }else{
+            console.log("O seu computador sera entregue sem sistema.")
+        }
     }
 }   
 
-let novops = new Computador
-novops.instalarSoftware()
+let novmemoria = new Memoria ("DDR4", "3200", 20)
+//novmemoria.usarMemoria()
+let noProcess =  new Processador( "Intel" , "I7", 20, 2.80)
+//noProcess.executarPrograma()
+let hd = new Armazenamento ( "SATA", 1.024, 250)
+// hd.espacoLvre
+let telanova = new Tela (22, "1.920 por 1.080 pixels" )
+// telanova.ligar
+
+let novops = new Computador()
+novops.memoria = novmemoria
+novops.processador = noProcess 
+novops.armazenamento = hd
+novops.tela = telanova
+//novops.instalarSoftware()
+novops.fichaTecnica()
