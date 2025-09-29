@@ -196,7 +196,7 @@ export class Computador {
     fichaTecnica (){
         let dados = prompt(`Informe a marca do computado: `)
         let dad = prompt(`Informe o modelo:  `)
-        console.log(`A marca do computador é ${dados} de modelo ${dad}, contendo memoria de ${this.memoria.capacidade}, seu processador é: ${this.processador.marca}, Armazenamento de ${this.armazenamento.capacidade} e tela de ${this.tela.tamanho}" polegadas`)
+        console.log(`A marca do computador é ${dados} de modelo ${dad}, contendo memoria de ${this.memoria.capacidade}, seu processador é: ${this.processador.marca}, Armazenamento de ${this.armazenamento.capacidade} e tela de ${this.tela.tamanho}" polegadas e de resolução ${this.tela.resolucao}`)
     }
 
     instalarSoftware(){
