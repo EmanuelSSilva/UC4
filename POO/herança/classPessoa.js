@@ -2,7 +2,7 @@ import PromptSync from "prompt-sync"
 const prompt = PromptSync()
 
 
-class Pessoa {
+export class Pessoa {
     #cpf
      constructor(nome, cpf, data_nascimento){
         this.nome = nome
@@ -12,14 +12,14 @@ class Pessoa {
      }
 
      set cpf (novCpf){
-        this.nome = this.#cpf
+        this.#cpf = novCpf
      }
      get cpf (){
         return this.#cpf
      }
 
      mostrarInformacoes(){
-        console.log(`Nome ${this.nome}, CPF: ${this.#cpf}, data de nascimento: ${this.data_nascimento}`)
+        console.log(`Nome: ${this.nome}, CPF: ${this.#cpf}, data de nascimento: ${this.data_nascimento}`)
      }
 
 

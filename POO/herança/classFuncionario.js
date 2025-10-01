@@ -1,11 +1,12 @@
 import PromptSync from "prompt-sync"
+import {Pessoa} from "./classPessoa.js"
 const prompt = PromptSync()
 
 
-class Funcionario {
+export class Funcionario extends Pessoa  {
     #salario
-    constructor(cargo, salario, matricula){
-    //super(nome, cpf, data_nascimento)
+    constructor(nome, cpf, data_nascimento, cargo, salario, matricula){
+    super(nome, cpf, data_nascimento)
 
         this.cargo = cargo
         this.#salario = salario
@@ -34,14 +35,23 @@ class Funcionario {
             this.#salario += resulHora 
             console.log(`Suas hora Trabalhada foi ${quantHora} e o valor das suas horas trabalhadas é ${valorHora}, tolalizando no valor de ${resulHora}. adicionado ao seu salario : ${this.#salario}`)
             
+        }else{
+
+            console.log(`Você não fez hora extra e seu salario ${this.#salario}, não tem adicionais.`)
         }
-        //console.log(`Nome ${this.nome}, CPF: ${this.#cpf}, data de nascimento: ${this.data_nascimento}`)
+        
+        }
+        informacoesFuncionario(){
+         super.mostrarInformacoes()
+         console.log(`Seu salario é ${this.#salario} o cargo trabalhado é: ${this.cargo} sua matricula é: ${this.matricula}`)
      }
+
     }
-        const funcio2 = new Funcionario
-
-        funcio2.calculaHorasExtras()
-
+      //   const funcio2 = new Funcionario (prompt (`Informe seu nome: `) , prompt(`Informe seu CPF: `), prompt (`Informe sua data de nascimento: `),prompt (`Informe seu salario: `), prompt(`Informe seu Cargo: `), prompt(`Informe sua matricula: `))
+        
+      //     //funcio2.calculaHorasExtras()
+        
+      //   funcio2.informacoesFuncionario()
 
     
 
