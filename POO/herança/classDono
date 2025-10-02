@@ -1,0 +1,56 @@
+import PromptSync from "prompt-sync"
+import { Pessoa } from "./classPessoa.js"
+const prompt = PromptSync()
+
+class Dono extends Pessoa{
+    #patrimonio
+    #participacaoAcionaria
+    constructor(nome, cpf, data_nascimento, cargo, salario, matricula, participacaoLucros, departamento,  tempoDeDirecao, patrimonio, participacaoAciona){
+        super(nome, cpf, data_nascimento, cargo, salario, matricula, participacaoLucros, departamento,  tempoDeDirecao)
+
+        this.#patrimonio = patrimonio
+        this.#participacaoAcionaria = participacaoAciona
+    }
+        set patrimonio (novpatrimonio){
+        this.#patrimonio = novpatrimonio
+    }
+    get patrimonio (){
+        return this.#patrimonio
+    }
+       set participacaoAcionaria (participacaoAcio){
+        this.#participacaoAcionaria = participacaoAcio
+    }
+    get patrimonio (){
+        return this.#participacaoAcionaria
+    }
+
+     investir(valor) {
+        valor = Number(prompt(`Informe quanto deseja investir: `)) 
+        if (valor > 0) {
+            this.#patrimonio += valor
+            console.log(`Investimento realizado! Patrimônio atual: R$ ${this.#patrimonio}`)
+        } else {
+            console.log("Valor de investimento inválido.")
+        }
+    }
+
+    retirarLucros(percentual) {
+
+            percentual = Number(prompt(`Informe quanto % deseja retirar: `))   
+        if (percentual > 0 && percentual <= 100) {
+            let lucro = (this.#patrimonio * percentual) / 100
+            this.#patrimonio -= lucro
+            console.log(`Lucro retirado: R$ ${lucro}. Patrimônio restante: R$ ${this.#patrimonio}`)
+            
+        } else {
+            console.log("Percentual inválido para retirada de lucros.")
+            
+        }
+    }
+
+    
+
+   
+
+    
+}
