@@ -1,9 +1,5 @@
 import PromptSync from "prompt-sync"
-import { Memoria } from "./Import.js"
-import { Processador } from "./Import.js"
-import { Armazenamento } from "./Import.js"
-import { Tela } from "./Import.js"
-import { Computador } from "./Import.js"
+import { Memoria, Processador, Armazenamento, Tela, Computador } from "./Import.js"
 const prompt = PromptSync()
 
 let novmemoria = new Memoria ("DDR4", "3200", 64)

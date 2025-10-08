@@ -67,10 +67,12 @@ export class ContaBancaria{
 
      saque (valor) {
         
-        if (this.#saldo < valor )
-            console.log("Saldo insifuciente para retirada")
-        else if (valor <= 0 || isNaN(valor))
-            console.log("O valor é invalido")
+        if (this.#saldo < valor ){
+            throw new ErroDeBanco ('Erro!!! Saldo insifuciente para retirada')
+        }
+        if (valor <= 0 || isNaN(valor)){
+            throw new ErroDeBanco ('Erro!!! O valor é invalido')
+        }
         else{
             this.#saldo = this.#saldo - valor
             console.log(`Saque realizado com sucesso, seu saldo é ${this.#saldo} `)
@@ -81,7 +83,7 @@ export class ContaBancaria{
     deposito ( valor){
         
         if (valor <= 0 || isNaN(valor))
-            console.log("valor é invalido")
+            throw new ErroDeBanco (' Erro !!! valor é invalido')
         else{
             this.#saldo = this.#saldo + valor
             console.log(`Deposito realizado com sucesso! Seu novo saldo é: ${this.#saldo}`)
@@ -129,4 +131,9 @@ export class ContaBancaria{
     
 }
 
+export class ErroDeBanco extends Error {
+    constructor(message ){
+        super (message)
 
+        }
+}
