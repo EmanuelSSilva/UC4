@@ -19,10 +19,19 @@ const novoCliente = new ContaBancaria ("Emanuel", 12345678-9, 1234 , "24/09/2025
 novoCliente.saldo = 0
 try{
     novoCliente.deposito (Number(prompt("Informe quanto vc deseja depositar: "))) 
-}catch(err){
+}
+catch(err){
     console.error(err.message)
 }try{   
-novoCliente.saque(Number(prompt("Informe quanto vc deseja sacar: ")))
-}catch(err){
+
+    novoCliente.saque(Number(prompt("Informe quanto vc deseja sacar: ")))
+}
+catch(err){
+    console.error(err.message)
+}
+try{
+    novoCliente.rendimento()
+}
+catch(err){
     console.error(err.message)
 }

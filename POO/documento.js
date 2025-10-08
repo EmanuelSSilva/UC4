@@ -93,9 +93,13 @@ export class ContaBancaria{
        console.log(`Seu saldo é ${this.#saldo}`)
     }
     
-    rendimento (valor){
-        valor = this.#saldo * 0.10
-        console.log(`Seu rendimento é 10% sobre seu saldo atual e ao mês sera: ${valor}`)
+    rendimento (){
+        if( this.#saldo <= 0 ){
+            throw new ErroDeBanco (' Erro !!! O valor não teve redimento, a conta nao tem saldo positivo!')
+        }else{
+            valor = this.#saldo * 0.10
+            console.log(`Seu rendimento é 10% sobre seu saldo atual e ao mês sera: ${valor}`)
+    }
     }
 
    
