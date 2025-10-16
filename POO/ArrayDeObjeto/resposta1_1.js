@@ -18,17 +18,44 @@ function reservarQuarto (){
         relatorio += 'Nenhuma reserva encontrada.\n'
     } else {                    
         hotel.Reservas.forEach(reserva => {
-            relatorio += `Quarto ${reserva.quarto.numero} (${reserva.quarto.tipoDeQuarto}) - Cliente: ${reserva.cliente.nome}, CPF: ${reserva.cliente.cpf}, Contato: ${reserva.cliente.contato} - Data: ${reserva.data}\n`
+            relatorio += `Quarto ${reserva.quarto.numero} (${reserva.quarto.tipoDeQuarto}) - Cliente: ${reserva.cliente.nome}, CPF: ${reserva.cliente.cpf}, Contato: ${reserva.cliente.contato} - Data: ${reserva.dataReserva.toLocaleString(`pt-BR`)}\n`
         })
         return relatorio
     }  
 
 }
+function localizar(){
+
+}
+
+function LerRelatorioGeral(){
+    try {
+
+        const data = fs.readFileSync(`./Relatorios/ReserGeral.txt`, 'utf8')       
+        console.log('\n--- Relatório de Geral ---') 
+        console.log(data)
+    } catch (error) {
+        console.error(`Erro ao ler o arquivo: ${error.message}`)
+    }    
+}           
+
+function LerRelatorioMes(mes){
+    try {
+
+        const data = fs.readFileSync(`./Relatorios/ReserGeral${mes}.txt`, 'utf8')       
+        console.log('\n--- Relatório de Geral ---') 
+        console.log(data)
+    } catch (error) {
+        console.error(`Erro ao ler o arquivo: ${error.message}`)
+    }    
+}    
 
 function Relatorios(){
+
     try{
+    let data = new Date(prompt(`Digite uma data: `)).getMonth() + 1
     let  relatorio = reservarQuarto()
-     fs.appendFileSync(`./Relatorios/ReserGeral.txt`, relatorio, 'utf8')
+     fs.appendFileSync(`./Relatorios/ReserGeral${data}.txt`, relatorio, 'utf8')
      console.log('Relatório salvo com sucesso!')
     } catch (error){
         console.error(`Erro ao salvar relatório: ${error.message}`);
@@ -41,12 +68,15 @@ console.log('Bem-vindo ao sistema do hotel JS !')
 while (true) {
     console.log('\n1. Atendente')
     console.log('2. Cliente')
+    console.log(`3. Relatórios`)
     console.log('0. Sair')
-    const tipoUsuario = prompt('Você é atendente ou cliente? (1/2): ')
+    const tipoUsuario = prompt('Você é atendente ou cliente? (1/2/3): ')
     if (tipoUsuario === '1') {
         menuAtendente()
     } else if (tipoUsuario === '2') {
         menuCliente()
+    } else if (tipoUsuario === '3') {
+        menuRelatorios()
     } else if (tipoUsuario === '0') {
         console.log('Encerrando...')
         break
@@ -146,6 +176,30 @@ function menuCliente() {
             break
         } else {
             console.log('Opção inválida.')
+        }
+    }
+}
+
+function menuRelatorios() {
+    while (true) {
+        console.log('\nMenu de Relatorios:')
+        console.log('1. Consultar Relatório Geral')
+        console.log('2. Consultar Relatório Reserva po Data')
+                const opcao = prompt('Escolha uma opção: ')
+
+                if(opcao === '1'){
+                    LerRelatorioGeral()
+                }else if (opcao === '2') {
+            const mes = prompt('Digite o mês do relatório (1-12) ou 0 para Geral: ')
+            if (mes === '11'){
+                LerRelatorioMes(mes)
+            }else if (mes === '12'){
+                LerRelatorioMes(mes)
+            } else if (opcao === '0') {
+            break
+        } else {
+            console.log('Opção inválida.')
+        }
         }
     }
 }

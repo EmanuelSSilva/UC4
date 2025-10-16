@@ -131,7 +131,7 @@ class Hotel {
                 throw new TesteError("Quarto não encontrado.");
             }
 
-            const dataStr = new Date (prompt('Data da reserva (dd/mm/yyyy): '))
+            const dataStr = new Date (prompt('Data da reserva (yyyy/mm/dd): '))
             let reservaQuarto = new Reserva(quartoParaReservar, dataStr, cliente)
             this.Reservas.push(reservaQuarto)
             console.log("Reserva adicionada com sucesso.")
